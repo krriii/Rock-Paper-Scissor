@@ -1,0 +1,176 @@
+*{
+    font-family: "Roboto", sans-serif;
+}
+body{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0;
+}
+
+.container{
+    background: white;
+    padding: 2rem 7rem;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+.container h1{
+    text-align: center;
+    font-size: 32px;
+    color: #009688;
+    margin-bottom: 16px;
+
+
+}
+.result_images{
+    display: flex;
+    align-items: center;
+    column-gap: 6rem;
+    margin-top: 33px;
+    margin-bottom: 32px;
+    
+}
+
+.vs{
+    font-size: 24px;
+    font-weight: 800;
+    color: #FD9C1B;
+    text-align: center;
+}
+.text_field{
+    font-size: 16px;
+    text-align: center;
+}
+
+.text_field .text_bold{
+    font-weight: 550;
+}
+
+.container.start .user_result {
+    animation: userShake 0.7s ease infinite;
+    transform-origin: left;
+}
+@keyframes userShake {
+    50% {
+        transform: rotate(10deg);
+    }
+    
+}
+
+.container.start .cpu_result {
+    animation: cpuShake 0.7s ease infinite;
+    transform-origin: right;
+}
+@keyframes cpuShake {
+    50% {
+        transform: rotate(-10deg);
+    }
+    
+}
+.result_images img{
+    width: 80px;
+}
+.user_result img{
+    transform: rotate(90deg);
+}
+.cpu_result img{
+    transform: rotate(-90deg) rotateY(180deg);
+}
+
+.result{
+    text-align: center;
+    font-size: 28px;
+    font-weight: 800;
+    margin-top: 32px;
+    color: #1E1E1E;
+}
+.scores {
+    display: flex;
+    margin-top: 32px;
+    justify-content: center;
+    column-gap: 200px;
+    color: #202020;
+}
+
+.player_score, .cpu_score {
+    font-size: 20px;
+    font-weight: 400;
+    color: #202020;
+    
+}
+.player_score span, .cpu_score span{
+    font-size: 20px;
+    font-weight: 800;
+}
+
+/* .player_score span {
+    font-size: 20px;
+    font-weight: 800;
+    color: #16BD07;
+}
+
+.cpu_score span{
+    font-size: 20px;
+    font-weight: 800;
+    color: #003BD3;
+} */
+
+.option_image img {
+    width: 54px;
+}
+
+.option_images {
+    display: flex;
+    align-items: center;
+    margin-top: 32px;
+    justify-content: space-between;
+    column-gap: 32px;
+ 
+}
+
+.container.start .option_images{
+    pointer-events: none;
+
+}
+
+.option_image{
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0.5;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+.option_image:hover{
+    opacity: 1;
+}
+.option_image.active{
+    opacity: 1;
+}
+
+.option_image img{
+    pointer-events: none;
+}
+
+.option_image p{
+    color: #202020;
+    font-weight: 500;
+    font-size: 16px;
+    margin-top: 8px;
+    pointer-events: none;
+}
+
+/* Result Color Classes */
+.result.win {
+    color: #16BD07;
+}
+
+.result.lose {
+    color: #003BD3;
+}
+
+.result.draw {
+    color: #F00C24;
+}
