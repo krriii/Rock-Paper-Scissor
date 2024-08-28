@@ -5,11 +5,11 @@ cpuResult = document.querySelector('.cpu_result img');
 result = document.querySelector('.result');
 optionImages = document.querySelectorAll('.option_image');
 
-//Initialize the scores
+//Initialize the scores, to keep track of player and cpu scores
 let playerScore = 0;
 let cpuScore = 0;
 
-//elements displaying the scores
+//DOM elements displaying the scores
 const playerScoreElement = document.getElementById('playerScore');
 const cpuScoreElement = document.getElementById('cpuScore');
 
@@ -17,17 +17,17 @@ const cpuScoreElement = document.getElementById('cpuScore');
 optionImages.forEach((image,index) => {
     image.addEventListener('click', (e) => {
 
-        //highlight the selected image
+        //highlight the selected/ clicked image to visually indicate selection.
         image.classList.add('active');
 
-        //Set default images and text while processing
+        //Set default images and text while processing the result
         userResult.src = cpuResult.src = "images/rock1.png";
         result.textContent = "Waiting..";     
 
-        // Reset reslut 
+        // Reset previous result
         result.classList.remove('win', 'lose', 'draw');
 
-        //remove 'active' class from all other options
+        //remove 'active' class/image from all other options
         optionImages.forEach((image2,index2) => {
             
             index !== index2 && image2.classList.remove('active');
@@ -38,7 +38,7 @@ optionImages.forEach((image,index) => {
         //add 'start' class to indicate the game has started
         gameContainer.classList.add('start');
 
-        //set the time out to delay the result calculation
+        //set the time out to delay the result calculation by 2.5 seconds
         let time = setTimeout(() => {
 
              // Remove 'start' class after delay
@@ -46,7 +46,7 @@ optionImages.forEach((image,index) => {
 
             //get the image source of the clicked option
             let imageSrc = e.target.querySelector('img').src;
-        userResult.src = imageSrc; //set user choice
+        userResult.src = imageSrc; //set user choice and updates the image
 
         //generate a random choice for CPU
         let randomNumber = Math.floor(Math.random() * 3);
