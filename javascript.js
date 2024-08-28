@@ -13,6 +13,7 @@ let cpuScore = 0;
 const playerScoreElement = document.getElementById('playerScore');
 const cpuScoreElement = document.getElementById('cpuScore');
 
+
 //Add event listeners to all option images
 optionImages.forEach((image,index) => {
     image.addEventListener('click', (e) => {
@@ -106,4 +107,34 @@ optionImages.forEach((image,index) => {
         },2500); //2.5 seconds delay
  
     });
+});
+
+// Reset button functionality
+const resetButton = document.getElementById('resetButton');
+
+// Reset button event listener
+resetButton.addEventListener('click', () => {
+    // Reset scores
+    playerScore = 0;
+    cpuScore = 0;
+
+    // Update scores in DOM
+    playerScoreElement.textContent = playerScore;
+    cpuScoreElement.textContent = cpuScore;
+
+    // Reset result text and remove any result class
+    result.textContent = "Let's play the game";
+    result.classList.remove('win', 'lose', 'draw');
+
+    // Reset images to default
+    userResult.src = "images/rock1.png";
+    cpuResult.src = "images/rock1.png";
+
+    // Remove active class from all option images
+    optionImages.forEach((image) => {
+        image.classList.remove('active');
+    });
+
+    // Remove 'start' class if it exists
+    gameContainer.classList.remove('start');
 });
